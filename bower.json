@@ -1,0 +1,26 @@
+{
+  "name": "example",
+  "version": "0.0.0",
+  "homepage": "https://github.com/your/repo.git",
+  "authors": [
+    "Your Name"
+  ],
+  "description": "Boilerplate for creating React components",
+  "main": "./dist/example.js",
+  "keywords": [
+    "react"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "example",
+    "lib",
+    "node_modules",
+    "script",
+    "specs",
+    "index.js",
+    "karma.conf.js",
+    "webpack.config.js",
+    "package.json"
+  ]
+}

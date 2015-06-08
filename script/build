@@ -1,0 +1,8 @@
+#!/bin/sh
+webpack --devtool source-map
+
+node_modules/.bin/uglifyjs dist/ReactVelocityTransitionGroup.js \
+  --output dist/ReactVelocityTransitionGroup.min.js \
+  --source-map dist/ReactVelocityTransitionGroup.min.map \
+  --source-map-url ReactVelocityTransitionGroup.min.map \
+  --compress warnings=false
