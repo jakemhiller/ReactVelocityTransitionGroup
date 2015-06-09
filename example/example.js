@@ -18,7 +18,8 @@ var App = React.createClass({
   getInitialState: function() {
     return {
       showChildren: true,
-      items: [1, 2, 3]
+      items: [1, 2, 3],
+      colors: ['blue', 'red']
     }
   },
 
@@ -28,7 +29,6 @@ var App = React.createClass({
 
   addOne: function() {
     var items = _.clone(this.state.items);
-    console.log(items);
     items.push(items.length + 1);
     this.setState({items: items});
   },
@@ -37,6 +37,10 @@ var App = React.createClass({
     var items = _.clone(this.state.items);
     items.pop();
     this.setState({items: items});
+  },
+
+  reRender: function() {
+    this.setState({colors: this.state.colors.reverse()});
   },
 
   getItems: function(backgroundColor) {
@@ -53,24 +57,25 @@ var App = React.createClass({
         <button onClick={this.toggle}>Toggle</button>
         <button onClick={this.addOne}>+1</button>
         <button onClick={this.subtractOne}>-1</button>
+        <button onClick={this.reRender}>Re-Render</button>
           <div>
 
             <ReactVelocityTransitionGroup
               style={{display: 'flex', width: '100%'}}
               enter='fadeIn'
               leave='fadeOut'
-              duration={1000}
+              duration={5000}
             >
-            {this.getItems('red')}
+            {this.getItems(this.state.colors[0])}
             </ReactVelocityTransitionGroup>
 
             <ReactVelocityTransitionGroup
               style={{display: 'flex', width: '100%'}}
               enter={{opacity: [1, 0], width: ['100%', 0], translateX: [0, '50%']}}
               leave={{opacity: 0, translateX: '50%', width: 0}}
-              duration={500}
+              duration={5000}
             >
-            {this.getItems('blue')}
+            {this.getItems(this.state.colors[1])}
             </ReactVelocityTransitionGroup>
 
           </div>

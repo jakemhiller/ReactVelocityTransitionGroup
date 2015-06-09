@@ -8,18 +8,19 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     files: [
-      'specs/main.js',
-      'node_modules/karma-babel-preprocessor/node_modules/babel-core/browser-polyfill.js'
+      'specs/main.js'
     ],
 
     exclude: [
     ],
 
     preprocessors: {
-      '**/*.js': ['babel']
+      'specs/main.js': ['webpack', 'sourcemap']
     },
 
-    webpack: webpackConfig.module,
+    webpack: {
+      module: webpackConfig.module
+    },
 
     webpackServer: {
       stats: {
@@ -37,16 +38,8 @@ module.exports = function(config) {
 
     autoWatch: false,
 
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
-    singleRun: false,
-
-    plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher'),
-      require('karma-firefox-launcher'),
-      require('karma-webpack'),
-      require('karma-babel-preprocessor')
-    ]
+    singleRun: false
   });
 };

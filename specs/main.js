@@ -1,2 +1,3 @@
 // Require spec files here
-require('./example.spec.js');
+import 'babel/register';
+import './example.spec.js';
