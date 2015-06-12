@@ -64,6 +64,7 @@ var App = React.createClass({
               style={{display: 'flex', width: '100%'}}
               enter='fadeIn'
               leave='fadeOut'
+              easing='linear'
               duration={5000}
             >
             {this.getItems(this.state.colors[0])}
