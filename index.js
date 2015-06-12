@@ -1,1 +1,1 @@
-module.exports = require('./lib/ReactVelocityTransitionGroup');
+export * from './lib/ReactVelocityTransitionGroup';
