@@ -1,15 +1,18 @@
+var path = require('path');
+
 module.exports = {
   entry: './index.js',
   output: {
-    path: './dist',
-    publicPath: '/dist/',
+    path: path.join(__dirname, 'dist'),
+    publicPath: 'dist/',
     filename: 'ReactVelocityTransitionGroup.js',
     sourceMapFilename: 'ReactVelocityTransitionGroup.map',
     library: 'ReactVelocityTransitionGroup',
     libraryTarget: 'umd'
   },
   externals: {
-    'react': 'React'
+    'react': 'React',
+    'react/addons': 'React'
   },
   module: {
     loaders: [
@@ -31,5 +34,7 @@ module.exports = {
     configFile: './.eslintrc',
     emitWarning: true,
     emitError: true
-  }
+  },
+  plugins: [
+  ]
 };
