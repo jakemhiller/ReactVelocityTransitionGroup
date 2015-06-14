@@ -3,22 +3,24 @@ const TestUtils = React.addons.TestUtils;
 
 import ReactVelocityTransitionGroup from '../index';
 
+describe('ReactVelocityTransitionGroup', () => {
+  it('should render successfully', () => {
+    let childNode = <div key="child-item">test</div>;
 
-describe('ReactVelocityTransitionGroup', function () {
-  it('should render successfully', function () {
-    var childNode = <div key="child-item">test</div>;
-
-    var transitionGroup = TestUtils.renderIntoDocument(
+    let transitionGroup = TestUtils.renderIntoDocument(
       <ReactVelocityTransitionGroup
         enter={{opacity: [1, 0]}}
-        leave={{opacity: 0}}>
+        leave={{opacity: 0}}
+        duration={1000}
+      >
         {childNode}
       </ReactVelocityTransitionGroup>
     );
 
-    var renderedTransitionGroup = TestUtils.scryRenderedComponentsWithType(
+    let renderedTransitionGroup = TestUtils.scryRenderedComponentsWithType(
       transitionGroup, ReactVelocityTransitionGroup
     );
+
     expect(renderedTransitionGroup.length).toBe(1);
   });
 });
