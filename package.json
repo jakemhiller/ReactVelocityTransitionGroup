@@ -4,8 +4,9 @@
   "description": "Velocity.js based replacement for ReactCSSTransitionGroup",
   "main": "index.js",
   "scripts": {
-    "test": "script/test --single-run",
-    "start": "script/build"
+    "test": "karma start --single-run",
+    "start": "script/build",
+    "watch": "webpack-dev-server --watch --devtool inline-source-map"
   },
   "browserify": {
     "transform": [
@@ -39,15 +40,12 @@
     "eslint": "^0.22.1",
     "eslint-loader": "^0.12.0",
     "eslint-plugin-react": "^2.5.0",
-    "gulp": "^3.9.0",
-    "gulp-util": "^3.0.5",
     "karma": "^0.12.19",
     "karma-cli": "0.0.4",
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.2.0",
     "karma-sourcemap-loader": "^0.3.5",
     "karma-webpack": "^1.2.1",
-    "reactify": "^1.1.1",
     "uglify-js": "^2.4.15",
     "webpack": "^1.9.10",
     "webpack-dev-server": "^1.9.0"

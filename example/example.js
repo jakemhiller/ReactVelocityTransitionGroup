@@ -10,7 +10,7 @@ var itemStyle = {
   lineHeight: '50px',
   padding: 10,
   fontSize: '2rem'
-}
+};
 
 
 var App = React.createClass({
@@ -20,7 +20,7 @@ var App = React.createClass({
       showChildren: true,
       items: [1, 2, 3],
       colors: ['blue', 'red']
-    }
+    };
   },
 
   toggle: function() {
@@ -67,7 +67,7 @@ var App = React.createClass({
               easing='linear'
               duration={5000}
             >
-            {this.getItems(this.state.colors[0])}
+              {this.getItems(this.state.colors[0])}
             </ReactVelocityTransitionGroup>
 
             <ReactVelocityTransitionGroup
@@ -76,7 +76,7 @@ var App = React.createClass({
               leave={{opacity: 0, translateX: '50%', width: 0}}
               duration={5000}
             >
-            {this.getItems(this.state.colors[1])}
+              {this.getItems(this.state.colors[1])}
             </ReactVelocityTransitionGroup>
 
           </div>

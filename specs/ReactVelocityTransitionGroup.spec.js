@@ -1,10 +1,13 @@
-import React from 'react';
-import TestUtils from 'react/addons/TestUtils';
+import React from 'react/addons';
+const TestUtils = React.addons.TestUtils;
+
 import ReactVelocityTransitionGroup from '../index';
+
 
 describe('ReactVelocityTransitionGroup', function () {
   it('should render successfully', function () {
-    var childNode = <div>test</div>;
+    var childNode = <div key="child-item">test</div>;
+
     var transitionGroup = TestUtils.renderIntoDocument(
       <ReactVelocityTransitionGroup
         enter={{opacity: [1, 0]}}
@@ -12,6 +15,7 @@ describe('ReactVelocityTransitionGroup', function () {
         {childNode}
       </ReactVelocityTransitionGroup>
     );
+
     var renderedTransitionGroup = TestUtils.scryRenderedComponentsWithType(
       transitionGroup, ReactVelocityTransitionGroup
     );
