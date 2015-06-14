@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start --single-run",
-    "start": "script/build",
+    "build": "script/build",
     "watch": "webpack-dev-server --watch --devtool inline-source-map"
   },
   "browserify": {
