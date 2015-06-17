@@ -245,7 +245,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var ReactTransitionGroup = _reactAddons2['default'].addons.TransitionGroup;
 	
-	var allowedChildProps = ['appear', 'enter', 'leave', 'easing', 'delay', 'duration'];
+	var allowedChildProps = ['appear', 'enter', 'leave', 'easing', 'delay', 'duration', 'options'];
 	
 	var ReactVelocityTransitionGroup = _reactAddons2['default'].createClass({
 	  displayName: 'ReactVelocityTransitionGroup',
@@ -12691,12 +12691,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var propTypes = function propTypes() {
 	  return {
-	    appear: _reactAddons2['default'].PropTypes.oneOfType([_reactAddons2['default'].PropTypes.string, _reactAddons2['default'].PropTypes.object, _reactAddons2['default'].PropTypes.bool]),
-	    enter: _reactAddons2['default'].PropTypes.oneOfType([_reactAddons2['default'].PropTypes.string, _reactAddons2['default'].PropTypes.object]).isRequired,
-	    leave: _reactAddons2['default'].PropTypes.oneOfType([_reactAddons2['default'].PropTypes.string, _reactAddons2['default'].PropTypes.object]),
+	    appear: _reactAddons2['default'].PropTypes.oneOfType([_reactAddons2['default'].PropTypes.string, _reactAddons2['default'].PropTypes.object, _reactAddons2['default'].PropTypes.array]),
+	    enter: _reactAddons2['default'].PropTypes.oneOfType([_reactAddons2['default'].PropTypes.string, _reactAddons2['default'].PropTypes.object, _reactAddons2['default'].PropTypes.array]),
+	    leave: _reactAddons2['default'].PropTypes.oneOfType([_reactAddons2['default'].PropTypes.string, _reactAddons2['default'].PropTypes.object, _reactAddons2['default'].PropTypes.array]),
 	    easing: _reactAddons2['default'].PropTypes.oneOfType([_reactAddons2['default'].PropTypes.string, _reactAddons2['default'].PropTypes.array]),
 	    delay: _reactAddons2['default'].PropTypes.number,
-	    duration: _reactAddons2['default'].PropTypes.number
+	    duration: _reactAddons2['default'].PropTypes.number,
+	    options: _reactAddons2['default'].PropTypes.object
 	  };
 	};
 	
@@ -12710,6 +12711,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 	
 	var _Object$defineProperty = __webpack_require__(1)['default'];
+	
+	var _Object$assign = __webpack_require__(8)['default'];
 	
 	var _interopRequireDefault = __webpack_require__(5)['default'];
 	
@@ -12742,6 +12745,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  propTypes: (0, _propTypes2['default'])(),
 	
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      options: {}
+	    };
+	  },
+	
 	  _getUITransitionName: function _getUITransitionName(transition) {
 	    var UITransitionName = 'transition.' + transition;
 	
@@ -12763,19 +12772,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	      transition = this._getUITransitionName(transition);
 	    }
 	
-	    (0, _velocityAnimate2['default'])(node, transition, {
+	    var options = _Object$assign({}, {
 	      duration: this.props.duration,
 	      complete: doneCallback,
 	      easing: this.props.easing
-	    });
+	    }, this.props.options);
+	
+	    (0, _velocityAnimate2['default'])(node, transition, options);
 	  },
 	
 	  componentWillAppear: function componentWillAppear(done) {
-	    var transition = this.props.appear;
-	    if (_lodash2['default'].isUndefined(transition)) {
-	      transition = this.props.enter;
-	    }
-	    if (transition) {
+	    if (this.props.appear) {
 	      this._transition(this.props.enter, done);
 	    } else {
 	      done();
@@ -12783,7 +12790,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	
 	  componentWillEnter: function componentWillEnter(done) {
-	    if (this.props.enter) {
+	    var transition = this.props.enter;
+	
+	    if (_lodash2['default'].isUndefined(transition)) {
+	      transition = this.props.appear;
+	    }
+	
+	    if (transition) {
 	      this._transition(this.props.enter, done);
 	    } else {
 	      done();

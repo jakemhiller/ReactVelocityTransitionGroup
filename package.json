@@ -1,6 +1,6 @@
 {
   "name": "ReactVelocityTransitionGroup",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Velocity.js based replacement for ReactCSSTransitionGroup",
   "main": "index.js",
   "scripts": {
