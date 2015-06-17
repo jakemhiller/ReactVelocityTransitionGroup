@@ -1,10 +1,10 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("React"));
+		module.exports = factory(require("react/addons"));
 	else if(typeof define === 'function' && define.amd)
-		define(["React"], factory);
+		define(["react/addons"], factory);
 	else if(typeof exports === 'object')
-		exports["ReactVelocityTransitionGroup"] = factory(require("React"));
+		exports["ReactVelocityTransitionGroup"] = factory(require("react/addons"));
 	else
 		root["ReactVelocityTransitionGroup"] = factory(root["React"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_16__) {
@@ -245,7 +245,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var ReactTransitionGroup = _reactAddons2['default'].addons.TransitionGroup;
 	
-	var allowedChildProps = ['enter', 'leave', 'easing', 'delay', 'duration'];
+	var allowedChildProps = ['appear', 'enter', 'leave', 'easing', 'delay', 'duration'];
 	
 	var ReactVelocityTransitionGroup = _reactAddons2['default'].createClass({
 	  displayName: 'ReactVelocityTransitionGroup',
@@ -12694,7 +12694,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    appear: _reactAddons2['default'].PropTypes.oneOfType([_reactAddons2['default'].PropTypes.string, _reactAddons2['default'].PropTypes.object, _reactAddons2['default'].PropTypes.bool]),
 	    enter: _reactAddons2['default'].PropTypes.oneOfType([_reactAddons2['default'].PropTypes.string, _reactAddons2['default'].PropTypes.object]).isRequired,
 	    leave: _reactAddons2['default'].PropTypes.oneOfType([_reactAddons2['default'].PropTypes.string, _reactAddons2['default'].PropTypes.object]),
-	    easing: _reactAddons2['default'].PropTypes.string,
+	    easing: _reactAddons2['default'].PropTypes.oneOfType([_reactAddons2['default'].PropTypes.string, _reactAddons2['default'].PropTypes.array]),
 	    delay: _reactAddons2['default'].PropTypes.number,
 	    duration: _reactAddons2['default'].PropTypes.number
 	  };
@@ -12763,7 +12763,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      transition = this._getUITransitionName(transition);
 	    }
 	
-	    return (0, _velocityAnimate2['default'])(node, transition, {
+	    (0, _velocityAnimate2['default'])(node, transition, {
 	      duration: this.props.duration,
 	      complete: doneCallback,
 	      easing: this.props.easing

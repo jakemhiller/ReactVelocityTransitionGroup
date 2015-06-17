@@ -10,10 +10,16 @@ module.exports = {
     library: 'ReactVelocityTransitionGroup',
     libraryTarget: 'umd'
   },
-  externals: {
-    'react': 'React',
-    'react/addons': 'React'
-  },
+  externals: [
+    {
+      'react/addons': {
+        root: 'React',
+        commonjs2: 'react/addons',
+        commonjs: 'react/addons',
+        amd: 'react/addons'
+      }
+    }
+  ],
   module: {
     loaders: [
       {
