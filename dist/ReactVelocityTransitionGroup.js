@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("lodash"), require("react/addons"), require("react/addons"), require("velocity-animate/velocity.ui"));
+		module.exports = factory(require("lodash"), require("react/addons"), require("react/addons"));
 	else if(typeof define === 'function' && define.amd)
-		define(["lodash", "react/addons", "react/addons", "velocity-animate/velocity.ui"], factory);
+		define(["lodash", "react/addons", "react/addons"], factory);
 	else if(typeof exports === 'object')
-		exports["ReactVelocityTransitionGroup"] = factory(require("lodash"), require("react/addons"), require("react/addons"), require("velocity-animate/velocity.ui"));
+		exports["ReactVelocityTransitionGroup"] = factory(require("lodash"), require("react/addons"), require("react/addons"));
 	else
-		root["ReactVelocityTransitionGroup"] = factory(root["_"], root["React"], root["Velocity"], root["Velocity"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_14__, __WEBPACK_EXTERNAL_MODULE_15__, __WEBPACK_EXTERNAL_MODULE_18__, __WEBPACK_EXTERNAL_MODULE_19__) {
+		root["ReactVelocityTransitionGroup"] = factory(root["_"], root["React"], root["Velocity"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_14__, __WEBPACK_EXTERNAL_MODULE_15__, __WEBPACK_EXTERNAL_MODULE_18__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -480,13 +480,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _velocityAnimate2 = _interopRequireDefault(_velocityAnimate);
 	
-	__webpack_require__(19);
-	
 	var _propTypes = __webpack_require__(16);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var UITransitions = _lodash2['default'].get(_velocityAnimate2['default'], 'RegisterEffect.packagedEffects', {});
 	
 	var ReactVelocityTransitionGroupChild = _reactAddons2['default'].createClass({
 	  displayName: 'ReactVelocityTransitionGroupChild',
@@ -499,26 +495,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 	  },
 	
-	  _getUITransitionName: function _getUITransitionName(transition) {
-	    var UITransitionName = 'transition.' + transition;
-	
-	    if (UITransitions[UITransitionName]) {
-	      return UITransitionName;
-	    } else if (UITransitions['' + UITransitionName + 'In']) {
-	      return '' + UITransitionName + 'In';
-	    } else if (UITransitions['' + UITransitionName + 'Out']) {
-	      return '' + UITransitionName + 'Out';
-	    }
-	
-	    return null;
-	  },
-	
 	  _transition: function _transition(transition, doneCallback) {
 	    var node = _reactAddons2['default'].findDOMNode(this);
-	
-	    if (_lodash2['default'].isString(transition)) {
-	      transition = this._getUITransitionName(transition);
-	    }
 	
 	    var options = _Object$assign({}, {
 	      duration: this.props.duration,
@@ -531,7 +509,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  componentWillAppear: function componentWillAppear(done) {
 	    if (this.props.appear) {
-	      this._transition(this.props.enter, done);
+	      this._transition(this.props.appear, done);
 	    } else {
 	      done();
 	    }
@@ -572,12 +550,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_18__;
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_19__;
 
 /***/ }
 /******/ ])

@@ -2,11 +2,12 @@
   "name": "velocity-transition-group",
   "version": "1.0.2",
   "description": "Velocity.js based replacement for ReactCSSTransitionGroup",
-  "main": "index.js",
+  "main": "dist/ReactVelocityTransitionGroup.js",
   "scripts": {
     "test": "karma start --single-run",
     "build": "script/build",
-    "watch": "webpack-dev-server --watch --devtool inline-source-map"
+    "prepublish": "npm run build",
+    "watch": "webpack-dev-server --watch --port 9001 --devtool inline-source-map"
   },
   "browserify": {
     "transform": [
