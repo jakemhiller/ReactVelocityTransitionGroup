@@ -20,9 +20,9 @@ module.exports = {
       },
       'velocity-animate': {
         root: 'Velocity',
-        commonjs2: 'react/addons',
-        commonjs: 'react/addons',
-        amd: 'react/addons'
+        commonjs2: 'velocity-animate',
+        commonjs: 'velocity-animate',
+        amd: 'velocity-animate'
       },
       'lodash': {
         root: '_',
