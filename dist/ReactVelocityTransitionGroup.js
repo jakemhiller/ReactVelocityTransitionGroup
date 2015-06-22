@@ -523,7 +523,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	
 	    if (transition) {
-	      this._transition(this.props.enter, done);
+	      this._transition(transition, done);
 	    } else {
 	      done();
 	    }
