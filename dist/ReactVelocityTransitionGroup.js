@@ -1,10 +1,10 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("lodash"), require("react/addons"), require("react/addons"));
+		module.exports = factory(require("lodash"), require("react/addons"), require("velocity-animate"));
 	else if(typeof define === 'function' && define.amd)
-		define(["lodash", "react/addons", "react/addons"], factory);
+		define(["lodash", "react/addons", "velocity-animate"], factory);
 	else if(typeof exports === 'object')
-		exports["ReactVelocityTransitionGroup"] = factory(require("lodash"), require("react/addons"), require("react/addons"));
+		exports["ReactVelocityTransitionGroup"] = factory(require("lodash"), require("react/addons"), require("velocity-animate"));
 	else
 		root["ReactVelocityTransitionGroup"] = factory(root["_"], root["React"], root["Velocity"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_14__, __WEBPACK_EXTERNAL_MODULE_15__, __WEBPACK_EXTERNAL_MODULE_18__) {
