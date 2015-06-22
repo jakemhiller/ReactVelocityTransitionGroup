@@ -2,8 +2,6 @@
 
 This is a replacement for React's `ReactCSSTransitionGroup` addon that uses [velocity.js](https://github.com/julianshapiro/velocity) for animations instead of CSS.
 
-This is still very much a work in progress.
-
 ### Simple Example:
 
 ```js
@@ -21,7 +19,7 @@ let overlayStyles = {
 // Manually setting transition properties
 let OverlayComponent1 = React.createClass({
   render() {
-    let Overlay = <div style={overlayStyles} />;
+    let overlay = <div style={overlayStyles} />;
     return (
       <ReactVelocityTransitionGroup
         enter={{opacity: [1, 0]}}
