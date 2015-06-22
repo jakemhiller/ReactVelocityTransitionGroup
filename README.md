@@ -7,7 +7,7 @@ This is still very much a work in progress.
 ### Simple Example:
 
 ```js
-import 'ReactVelocityTransitionGroup' from `ReactVelocityTransitionGroup`;
+import 'ReactVelocityTransitionGroup' from `velocity-transition-group`;
 
 let overlayStyles = {
   backgroundColor: '#000',
