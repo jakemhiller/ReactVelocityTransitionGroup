@@ -495,16 +495,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 	  },
 	
-	  _transition: function _transition(transition, doneCallback) {
+	  _transition: function _transition(transition, done) {
+	    var _this = this;
+	
 	    var node = _reactAddons2['default'].findDOMNode(this);
 	
 	    var options = _Object$assign({}, {
 	      duration: this.props.duration,
-	      complete: doneCallback,
+	      complete: function complete() {
+	        _this._transitionCallback(done);
+	      },
 	      easing: this.props.easing
 	    }, this.props.options);
 	
 	    (0, _velocityAnimate2['default'])(node, transition, options);
+	  },
+	
+	  _transitionCallback: function _transitionCallback(done) {
+	    if (!this.isMounted()) return;
+	    done();
 	  },
 	
 	  componentWillAppear: function componentWillAppear(done) {
