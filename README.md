@@ -1,11 +1,15 @@
-# ReactVelocityTransitionGroup
+# VelocityTransitionGroup
 
 This is a replacement for React's `ReactCSSTransitionGroup` addon that uses [velocity.js](https://github.com/julianshapiro/velocity) for animations instead of CSS.
+
+### Installation:
+
+`npm install velocity-transition-group`
 
 ### Simple Example:
 
 ```js
-import 'ReactVelocityTransitionGroup' from `velocity-transition-group`;
+import VelocityTransitionGroup from `velocity-transition-group`;
 
 let overlayStyles = {
   backgroundColor: '#000',
@@ -16,19 +20,17 @@ let overlayStyles = {
   left: 0
 };
 
-// Manually setting transition properties
-let OverlayComponent1 = React.createClass({
+let OverlayComponent = React.createClass({
   render() {
-    let overlay = <div style={overlayStyles} />;
     return (
-      <ReactVelocityTransitionGroup
-        enter={{opacity: [1, 0]}}
+      <VelocityTransitionGroup
+        appear={{opacity: [1, 0]}}
         leave={{opacity: 0}}
         easing='linear'
         duration={250}
       >
-      {overlay}
-      <ReactVelocityTransitionGroup/>
+        <div style={overlayStyles} />;
+      <VelocityTransitionGroup/>
     )
   }
 });
