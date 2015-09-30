@@ -18,7 +18,6 @@ var App = React.createClass({
   getInitialState: function() {
     return {
       showChildren: true,
-      hideContent: false,
       items: [1, 2, 3],
       colors: ['blue', 'red']
     };
@@ -26,11 +25,6 @@ var App = React.createClass({
 
   toggle: function() {
     this.setState({showChildren: !this.state.showChildren});
-    _.delay(function() {
-      this.setState({
-        hideContent: !!this.state.hideContent
-      })
-    }.bind(this), 250);
   },
 
   addOne: function() {
@@ -51,7 +45,6 @@ var App = React.createClass({
 
   getItems: function(backgroundColor) {
     if (!this.state.showChildren) return null;
-
     var styl = _.extend({}, itemStyle, {backgroundColor: backgroundColor});
     return this.state.items.map(function(item, i) {
       return <div key={'item-'+i} style={styl}>{item}</div>
@@ -59,39 +52,34 @@ var App = React.createClass({
   },
 
   render: function () {
-    var content = (
-      <div>
-
-        <ReactVelocityTransitionGroup
-          style={{display: 'flex', width: '100%'}}
-          enter='fadeIn'
-          leave='fadeOut'
-          easing='linear'
-          duration={250}
-        >
-          {this.getItems(this.state.colors[0])}
-        </ReactVelocityTransitionGroup>
-
-        <ReactVelocityTransitionGroup
-          style={{display: 'flex', width: '100%'}}
-          enter={{opacity: [1, 0], width: ['100%', 0], translateX: [0, '50%']}}
-          leave={{opacity: 0, translateX: '50%', width: 0}}
-          duration={250}
-        >
-          {this.getItems(this.state.colors[1])}
-        </ReactVelocityTransitionGroup>
-
-      </div>
-    );
-
-    if (this.state.hideContent) content = null;
     return (
       <div>
         <button onClick={this.toggle}>Toggle</button>
         <button onClick={this.addOne}>+1</button>
         <button onClick={this.subtractOne}>-1</button>
         <button onClick={this.reRender}>Re-Render</button>
-        {content}
+          <div>
+
+            <ReactVelocityTransitionGroup
+              style={{display: 'flex', width: '100%'}}
+              enter='fadeIn'
+              leave='fadeOut'
+              easing='linear'
+              duration={5000}
+            >
+              {this.getItems(this.state.colors[0])}
+            </ReactVelocityTransitionGroup>
+
+            <ReactVelocityTransitionGroup
+              style={{display: 'flex', width: '100%'}}
+              enter={{opacity: [1, 0], width: ['100%', 0], translateX: [0, '50%']}}
+              leave={{opacity: 0, translateX: '50%', width: 0}}
+              duration={5000}
+            >
+              {this.getItems(this.state.colors[1])}
+            </ReactVelocityTransitionGroup>
+
+          </div>
       </div>
     );
   }
