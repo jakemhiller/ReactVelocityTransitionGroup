@@ -2,6 +2,10 @@
 
 This is a replacement for React's `ReactCSSTransitionGroup` addon that uses [velocity.js](https://github.com/julianshapiro/velocity) for animations instead of CSS.
 
+### Installation:
+
+`npm install velocity-transition-group`
+
 ### Simple Example:
 
 ```js
