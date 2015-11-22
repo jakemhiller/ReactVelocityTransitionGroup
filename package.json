@@ -1,6 +1,6 @@
 {
   "name": "velocity-transition-group",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Velocity.js based replacement for ReactCSSTransitionGroup",
   "main": "dist/ReactVelocityTransitionGroup.js",
   "scripts": {
