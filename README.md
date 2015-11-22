@@ -1,6 +1,14 @@
+
+
 # VelocityTransitionGroup
 
 This is a replacement for React's `ReactCSSTransitionGroup` addon that uses [velocity.js](https://github.com/julianshapiro/velocity) for animations instead of CSS.
+
+### Warning
+
+Many other libraries have popped up since this one that accomplish the same thing and more.
+
+I'd recommend looking at [velocity-react](https://github.com/twitter-fabric/velocity-react) before using this. It is likely more up to date with the latest React, and includes other components and features that make working with Velocity in React much easier.
 
 ### Installation:
 
